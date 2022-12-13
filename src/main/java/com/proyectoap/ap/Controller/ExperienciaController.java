@@ -21,8 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/explab")
-@CrossOrigin(origins = "https://frontendap-bdefb.web.app")
-//@CrossOrigin(origins = "https://hcfrontend.web.app")
+@CrossOrigin(origins = { "https://frontendap-bdefb.web.app/", "http://localhost:4200" }) 
 public class ExperienciaController {
 
     @Autowired
@@ -83,6 +82,7 @@ public class ExperienciaController {
         }
 
         Experiencia experiencia = experienciaService.getOne(id).get();
+        
         experiencia.setNombreE(experienciaDto.getNombreE());
         experiencia.setDescripcionE((experienciaDto.getDescripcionE()));
 
